@@ -737,7 +737,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #about h2 {
-    margin: 0 30px 0 34px;
+    margin: 0 30px 0 55px;
     font-size: 30px;
   }
 
@@ -753,12 +753,156 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+#round h2 {
+  color: #fff;
+}
+
+#round .progress {
+  width: 150px;
+  height: 150px;
+  background: none;
+  position: relative;
+}
+
+#round .progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#round .progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+#round .progress .progress-left {
+  left: 0;
+}
+
+#round .progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 6px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+#round .progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+#round .progress .progress-right {
+  right: 0;
+}
+
+#round .progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+
+#round .progress .progress-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+# Speakers Section
+--------------------------------------------------------------*/
+
+#speakers {
+  padding: 60px 0 30px 0;
+}
+
+#speakers .speaker {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#speakers h2 {
+  color: #fff;
+}
+
+#speakers .speaker .details {
+  background: rgba(6, 12, 34, 0.76);
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  right: 0;
+  text-align: center;
+  padding-top: 10px;
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#speakers .speaker .details h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+#speakers .speaker .details p {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#speakers .speaker .details a {
+  color: #fff;
+}
+
+#speakers .speaker .details a:hover {
+  color: #26abff;
+}
+
+#speakers .speaker:hover .details {
+  bottom: 0;
+}
+
+#speakers-details {
+  padding: 60px 0;
+}
+
+#speakers-details .details h2 {
+  color: #112363;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#speakers-details .details p {
+  color: #112363;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
 /*--------------------------------------------------------------
 # Schedule Section
 --------------------------------------------------------------*/
 
 #schedule {
-  padding: 60px 0 270px 0;
+  padding: 60px 0 60px 0;
   background: #00001a;
 }
 
@@ -766,115 +910,207 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-#schedule .nav-tabs {
-  text-align: center;
-  margin: auto;
-  display: block;
-  border-bottom: 0;
-  margin-bottom: 30px;
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
 }
 
-#schedule .nav-tabs li {
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #26abff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline .container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.timeline .container.left {
+  left: -25%;
+}
+
+.timeline .container.right {
+  left: 25%;
+}
+
+.timeline .container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #26abff;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.timeline .container.right::after {
+  left: -8px;
+}
+
+.timeline .container::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #26abff;
+  z-index: 1;
+}
+
+.timeline .container.right::before {
+  left: 8px;
+}
+
+.timeline .container .date {
+  position: absolute;
   display: inline-block;
-  margin-bottom: 0;
-}
-
-#schedule .nav-tabs a {
-  border: 1px solid #cad4f6;
-  border-radius: 50px;
-  font-weight: 600;
-  background-color: rgba(6, 12, 34, 0.98);
-  color: #fff;
-  padding: 10px 100px;
-  margin-top: 10px;
-}
-
-#schedule .nav-tabs a.active {
-  background-color: #26abff;
-  border: 1px solid #000;
-  color: #000;
-}
-
-#schedule .sub-heading {
-  color: #fff;
+  top: calc(50% - 8px);
   text-align: center;
-  font-family: sans-serif;
-  font-size: 18px;
-  margin: 0 auto 30px auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #26abff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
 }
 
-#schedule .tab-pane {
-  transition: ease-in-out .2s;
+.timeline .container.left .date {
+  right: -75px;
 }
 
-#schedule .schedule-item {
-  background: rgba(6, 12, 34, 0.98);
-  border: 1px solid #cad4f6;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  transition: background-color ease-in-out 0.3s;
+.timeline .container.right .date {
+  left: -75px;
 }
 
-#schedule .schedule-item time {
-  color: #fff;
-  font-family: sans-serif;
-  font-weight: 600;
-  padding-bottom: 5px;
+.timeline .container .icon {
+  position: absolute;
   display: inline-block;
-}
-
-#schedule .schedule-item .speaker {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-#schedule .schedule-item .speaker img {
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-left: 50%;
-  transition: all ease-in-out 0.3s;
-}
-
-#schedule .schedule-item h4 {
-  color: #fff;
-  font-family: sans-serif;
+  width: 40px;
+  height: 40px;
+  padding: 9px 0;
+  top: calc(50% - 20px);
+  background: #0b1224;
+  border: 2px solid #26abff;
+  border-radius: 40px;
+  text-align: center;
   font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
+  color: #26abff;
+  z-index: 1;
 }
 
-#schedule .schedule-item h4 span {
-  font-style: italic;
-  color: #19328e;
-  font-weight: normal;
+.timeline .container.left .icon {
+  right: 56px;
+}
+
+.timeline .container.right .icon {
+  left: 56px;
+}
+
+.timeline .container .content {
+  padding: 30px 90px 30px 30px;
+  background: #0b1224;
+  position: relative;
+  border-radius: 0 500px 500px 0;
+  border: 2px solid #fff;
+}
+
+.timeline .container.right .content {
+  padding: 30px 30px 30px 90px;
+  border-radius: 500px 0 0 500px;
+}
+
+.timeline .container .content h2 {
+  margin: 0 0 10px 0;
   font-size: 16px;
-}
-
-#schedule .schedule-item p {
-  color: #fff;
+  font-weight: normal;
   font-family: sans-serif;
-  margin-bottom: 0;
+  color: #26abff;
 }
 
-@media screen and (max-width: 400px) {
-  #schedule h2 {
-    font-size: 30px;
-  }
-
-  #schedule .schedule-item {
-    margin: 0 15px;
-  }
-
-  #schedule .schedule-item p {
-    text-align: justify;
-  }
+.timeline .container .content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
 }
 
+@media (max-width: 767.98px) {
+  .timeline::after {
+    left: 15px;
+  }
+
+  .timeline .container {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 100px;
+  }
+
+  .timeline .container.right {
+    left: -20%;
+  }
+
+  .timeline .container.left {
+    left: -20%;
+  }
+
+  .timeline .container.left::after, 
+  .timeline .container.right::after {
+    left: 82px;
+  }
+
+  .timeline .container.left::before,
+  .timeline .container.right::before {
+    left: 100px;
+    border-color: transparent #26abff transparent transparent;
+  }
+
+  .timeline .container.left .date,
+  .timeline .container.right .date {
+    right: auto;
+    left: 15px;
+  }
+
+  .timeline .container.left .icon,
+  .timeline .container.right .icon {
+    right: auto;
+    left: 146px;
+  }
+
+  .timeline .container.left .content,
+  .timeline .container.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 500px 0 0 500px;
+  }
+
+  .timeline .container .content {
+    width: 310px;
+  }
+
+  .timeline .container .content h2 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .timeline .container .content p {
+    font-size: 12px;
+    text-align: left;
+  }
+}
 /*--------------------------------------------------------------
 # supporters Section
 --------------------------------------------------------------*/
@@ -1000,6 +1236,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
+
+@media screen and (max-width: 400px) {
+  #contact h2 {
+    font-size: 30px;
+  }
+}
+
 #contact .contact-info i {
   font-size: 48px;
   display: inline-block;
@@ -1033,6 +1276,25 @@ body.mobile-nav-active #mobile-nav-toggle {
 #contact .contact-phone,
 #contact .contact-email {
   margin-bottom: 10px;
+}
+
+#contact a.buy-tickets {
+  color: #000;
+  background: #26abff;
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 2px solid #26abff;
+  transition: all ease-in-out 0.3s;
+  font-weight: 600;
+  margin-left: 8px;
+  margin-top: 2px;
+  line-height: 1;
+  font-size: 13px;
+}
+
+#contact a.buy-tickets:hover {
+  color: #fff;
+  background: none;
 }
 
 /*--------------------------------------------------------------
